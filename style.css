@@ -1,5 +1,17 @@
 body {
     background-color: #FBF6EF;
+    width: 100%;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+#wrapper {
+    width: 100%;
+}
+
+#container {
+    width: 800px;
+    display: flex;
+    justify-content: center;
 }
 
 header {
@@ -10,6 +22,7 @@ header {
     align-items: center;
     justify-content: center;
     font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-bottom: 100px;
 }
 
 #header-wrapper {
@@ -27,6 +40,7 @@ header nav#header-right {
     display: flex;
     align-items: center;
     margin-left: auto;
+    font-family: Helvetica, Arial, sans-serif;
 }
 
 h1 {
@@ -38,4 +52,11 @@ a {
     color: white;
     text-decoration: none;
     font-size: 1.3em;
+}
+
+.book-card {
+    height: 50px;
+    width: 150px;
+    padding: 10px;
+    background-color: #E1BB80;
 }
