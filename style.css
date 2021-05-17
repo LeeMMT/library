@@ -2,22 +2,26 @@ body {
     background-color: #FBF6EF;
     width: 100%;
     font-family: Helvetica, Arial, sans-serif;
+    color: black;
 }
 
 #wrapper {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #container {
     width: 800px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
 }
 
 header {
     width: 100vw;
     height: 65px;
-    background-color: #352208;
+    background-color: #5F4E30;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -45,18 +49,31 @@ header nav#header-right {
 
 h1 {
     font-size: 2.5em;
-    color: white;
+    color: #FBF6EF;
 }
 
 a {
-    color: white;
+    color: #FBF6EF;
     text-decoration: none;
+    font-size: 1.2em;
+}
+
+h2 {
     font-size: 1.3em;
+    margin-bottom: 1em;
 }
 
 .book-card {
-    height: 50px;
-    width: 150px;
-    padding: 10px;
-    background-color: #E1BB80;
+    box-sizing: content-box;
+    width: 500px;
+    height: 150px;
+    padding-top: 12px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr auto;
+    grid-template-rows: auto;
+    border-style: solid;
+    border-color: #D8D8D8;
+    border-top-width: 1px;
 }
+
+/*box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);*/
