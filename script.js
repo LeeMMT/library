@@ -1,4 +1,4 @@
-const addBookBtn = document.querySelector('#add-book-btn');
+const addBook = document.querySelector('.add-book');
 const shelfArea = document.querySelector('#shelf-area');
 
 let library = [
@@ -57,6 +57,6 @@ const libraryLoad = function() {
 
 libraryLoad();
 
-/*addBookBtn.addEventListener('click', () => {
-    this.style.
-})*/
+addBook.addEventListener('click', () => {
+    addBook.classList.toggle('add-book-enlarged');
+})

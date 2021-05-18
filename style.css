@@ -69,26 +69,32 @@ h2 {
     margin-bottom: 1em;
 }
 
-#add-book-btn {
-    background-color: #FBF6EF;
-    border-style: solid;
-    border-width: 1px;;
-    border-color: #D8D8D8;
-    font-family: Helvetica, Arial sans-serif;
-    font-size: 1em;
-    padding: 4px 9px;
+form {
+    line-height: 1.4;
 }
 
 .add-book {
+    display: flex;
+    flex-direction: column;
     background-color: #FBF6EF;
     border-style: solid;
     border-width: 1px;;
     border-color: #D8D8D8;
-    font-family: Helvetica, Arial sans-serif;
     font-size: 1em;
     padding: 4px 9px;
-    width: 25px;
+    width: 68px;
+    height: 1em;
     overflow: hidden;
+    transition: width 1s, height 1s;
+}
+
+.add-book-enlarged {
+    width: 200px;
+    height: 200px;
+}
+
+.add-book form {
+    margin-top: 10px;
 }
 
 #shelf-area {
@@ -99,7 +105,7 @@ h2 {
     grid-area: right;
 }
 
-#utility button:hover {
+div.add-book:hover {
     border-color: #5F4E30;
     cursor: pointer;
 }
