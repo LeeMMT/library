@@ -69,17 +69,19 @@ h2 {
     margin-bottom: 1em;
 }
 
-button {
+#add-book-btn {
     background-color: #FBF6EF;
     border-style: solid;
     border-width: 1px;;
     border-color: #D8D8D8;
     font-family: Helvetica, Arial sans-serif;
     font-size: 1em;
+    padding: 4px 9px;
 }
 
 #utility button:hover {
     border-color: #5F4E30;
+    cursor: pointer;
 }
 
 .book-card {

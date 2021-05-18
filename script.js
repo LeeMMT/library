@@ -1,3 +1,5 @@
+const addBookBtn = document.querySelector('#add-book-btn');
+
 let library = [
     {title: 'The Three Body Problem',
     author: 'Liu Cixin',
