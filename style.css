@@ -55,7 +55,7 @@ h1 {
 a {
     color: #FBF6EF;
     text-decoration: none;
-    font-size: 1.2em;
+    font-size: 1em;
 }
 
 h2 {
@@ -64,16 +64,28 @@ h2 {
 }
 
 .book-card {
+    font-size: 1em;
     box-sizing: content-box;
     width: 500px;
-    height: 150px;
-    padding-top: 12px;
+    height: auto;
+    padding-top: 6px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr auto;
+    grid-template-columns: 2.5fr 1fr 0.5fr 0.5fr;
     grid-template-rows: auto;
     border-style: solid;
     border-color: #D8D8D8;
     border-top-width: 1px;
+    margin-bottom: 2px;
 }
+
+.book-card-header {
+    font-size: 0.9em;
+}
+
+@media screen and (max-width: 800px) {
+    #header-wrapper, #container, .book-card {
+        width: 95vw;
+    }
+  }
 
 /*box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);*/
