@@ -20,8 +20,8 @@ body {
 
 #layout-grid {
     display: grid;
-    grid-template-columns: auto auto;
-    grid-template-areas: 'shelf utility';
+    grid-template-columns: 3fr 1fr;
+    grid-template-areas: 'left right';
 }
 
 header {
@@ -79,6 +79,26 @@ h2 {
     padding: 4px 9px;
 }
 
+.add-book {
+    background-color: #FBF6EF;
+    border-style: solid;
+    border-width: 1px;;
+    border-color: #D8D8D8;
+    font-family: Helvetica, Arial sans-serif;
+    font-size: 1em;
+    padding: 4px 9px;
+    width: 25px;
+    overflow: hidden;
+}
+
+#shelf-area {
+    grid-area: left;
+}
+
+#utility {
+    grid-area: right;
+}
+
 #utility button:hover {
     border-color: #5F4E30;
     cursor: pointer;
@@ -106,6 +126,23 @@ h2 {
 @media screen and (max-width: 800px) {
     #header-wrapper, #container, .book-card {
         width: 95vw;
+    }
+
+    #layout-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+        grid-template-areas:
+            'top'
+            'bottom'
+        ;
+    }
+
+    #utility {
+        grid-area: top;
+    }
+
+    #shelf-area {
+        grid-area: bottom;
     }
   }
 

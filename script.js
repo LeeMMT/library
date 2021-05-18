@@ -1,4 +1,5 @@
 const addBookBtn = document.querySelector('#add-book-btn');
+const shelfArea = document.querySelector('#shelf-area');
 
 let library = [
     {title: 'The Three Body Problem',
@@ -13,8 +14,6 @@ let library = [
     author: 'Liu Cixin',
     pages: '605',
     read: true}];
-
-const container = document.querySelector('#container');
 
 //Functions
 
@@ -49,7 +48,7 @@ const bookCardGenerator = function(e)  {
     bookCard.appendChild(author);
     bookCard.appendChild(pages);
     bookCard.appendChild(shelf);
-    container.appendChild(bookCard);
+    shelfArea.appendChild(bookCard);
 }
 
 const libraryLoad = function() {
@@ -57,3 +56,7 @@ const libraryLoad = function() {
 }
 
 libraryLoad();
+
+/*addBookBtn.addEventListener('click', () => {
+    this.style.
+})*/
