@@ -63,10 +63,11 @@ const libraryLoad = function() {
 
 libraryLoad();
 
-addBook.addEventListener('click', () => {
+addBook.addEventListener('click', (e) => {
     if (addBook.classList.contains('add-book-enlarged') === false) {
         addBook.classList.toggle('add-book-enlarged');
     }
+    console.log(e.target);
 })
 
 exitBtn.addEventListener('click', () => {

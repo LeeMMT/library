@@ -154,9 +154,13 @@ button:hover {
     grid-area: right;
 }
 
-div.add-book:hover {
+.add-book:hover {
     border-color: #5F4E30;
     cursor: pointer;
+}
+
+.add-book-enlarged:hover {
+    cursor: auto;
 }
 
 .book-card {
