@@ -1,5 +1,6 @@
-const addBook = document.querySelector('.add-book');
 const shelfArea = document.querySelector('#shelf-area');
+const addBook = document.querySelector('.add-book');
+const exitBtn = document.querySelector('.add-book i');
 
 let library = [
     {title: 'The Three Body Problem',
@@ -58,5 +59,9 @@ const libraryLoad = function() {
 libraryLoad();
 
 addBook.addEventListener('click', () => {
-    addBook.classList.toggle('add-book-enlarged');
+    if (addBook.classList.contains('add-book-enlarged') === false) {
+        addBook.classList.toggle('add-book-enlarged');
+    }
 })
+
+exitBtn.addEventListener('click', () => addBook.classList.toggle('add-book-enlarged'));

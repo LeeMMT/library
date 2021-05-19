@@ -12,6 +12,17 @@ body {
     align-items: center;
 }
 
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-row {
+    display: flex;
+    justify-content: space-between;
+    width: 250px;
+}
+
 #container {
     width: 800px;
     display: flex;
@@ -69,7 +80,7 @@ h2 {
     margin-bottom: 1em;
 }
 
-form {
+label {
     line-height: 1.4;
 }
 
@@ -89,12 +100,16 @@ form {
 }
 
 .add-book-enlarged {
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: max-content;
 }
 
 .add-book form {
     margin-top: 10px;
+}
+
+.add-book p {
+    margin-bottom: 6px;
 }
 
 #shelf-area {
