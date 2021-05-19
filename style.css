@@ -23,6 +23,12 @@ body {
     width: 250px;
 }
 
+.flex-row-label {
+    display: flex;
+    justify-content: space-between;
+    width: 250px;
+}
+
 #container {
     width: 800px;
     display: flex;
@@ -81,7 +87,35 @@ h2 {
 }
 
 label {
-    line-height: 1.4;
+    margin-bottom: 2px;
+}
+
+input, select {
+    font-size: 1em;
+    margin-bottom: 6px;
+}
+
+select {
+    height: 24px;
+    width: min-content;
+    padding: 1px 2px;
+}
+
+button {
+    width: max-content;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 2px;
+    background-color: #FBF6EF;
+    border-color: #D8D8D8;
+    font-size: 1em;
+}
+
+button:hover {
+    border-color: #5F4E30;
+    transform: scale(1.1);
+    background-color: #D8D8D8;
+    cursor: pointer;
 }
 
 .add-book {

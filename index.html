@@ -38,19 +38,16 @@
                             <p>Add book</p>
                             <i class="fas fa-times"></i>
                         </div>
-                            <label for='title'>Title</label>
-                            <input type='text' id='title' name='title'>
-                            <label for='author'>Author</label>
-                            <input type='text' id='author' name='author'>
-                            <label for='pages'>Pages</label>
-                            <input type='text' id='pages' name='pages'>
-                            <label for='Read'>Read</label>
-                            <input type='radio' id='shelf' name='shelf'>
-                            <label for='Read'>Unread</label>
-                            <input type='radio' id='shelf' name='shelf'>
-                            <label for='Read'>Currently reading</label>
-                            <input type='radio' id='shelf' name='shelf'>
-                            <button type='submit'>Submit</button>
+                        <label for='title'>Title</label>
+                        <input type='text' id='title' name='title'>
+                        <label for='author'>Author</label>
+                        <input type='text' id='author' name='author'>
+                        <label for='pages'>Pages</label>
+                        <input type='text' id='pages' name='pages'>
+                        <div class='flex-row'>
+                            <label for='progress'>Progress:</label><select name='progress' id='progress'><option value='read'>Read</option><option value='reading'>Reading</option><option value='unread'>Unread</option></select>
+                        </div>
+                        <button type='submit'>Submit</button>
                     </div>
                 </section>
             </div>

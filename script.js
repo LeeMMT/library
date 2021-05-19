@@ -1,6 +1,11 @@
 const shelfArea = document.querySelector('#shelf-area');
 const addBook = document.querySelector('.add-book');
-const exitBtn = document.querySelector('.add-book i');
+const exitBtn = document.querySelector('div.add-book i');
+const addbookBtn = document.querySelector('div.add-book button');
+const titleData = document.querySelector('input#title');
+const authorData = document.querySelector('input#author');
+const pagesData = document.querySelector('input#pages');
+const progressData = document.querySelector('select#progress');
 
 let library = [
     {title: 'The Three Body Problem',
