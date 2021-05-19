@@ -64,4 +64,7 @@ addBook.addEventListener('click', () => {
     }
 })
 
-exitBtn.addEventListener('click', () => addBook.classList.toggle('add-book-enlarged'));
+exitBtn.addEventListener('click', () => {
+    addBook.classList.toggle('add-book-enlarged');
+    console.log(addBook.classList);
+});
