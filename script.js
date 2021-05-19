@@ -35,8 +35,15 @@ book.prototype.info = function() {
 }
 
 const addBookToLibrary = function() {
-    const newBook = new book(title, author, pages, read);
-    library.push(newBook);
+    const title = titleData.value;
+    const author = authorData.value;
+    const pages = pagesData.value;
+    const read = progressData.value;
+    if (library.some(element => title.toLowerCase() === element.title.toLocaleLowerCase() && author.toLocaleLowerCase() === element.author.toLocaleLowerCase())) {
+        return;
+    }
+    library.push(new book(title, author, pages, read));
+    bookCardGenerator(library[library.length - 1]);
 }
 
 const bookCardGenerator = function(e)  {
@@ -67,10 +74,11 @@ addBook.addEventListener('click', (e) => {
     if (addBook.classList.contains('add-book-enlarged') === false) {
         addBook.classList.toggle('add-book-enlarged');
     }
-    console.log(e.target);
 })
 
-exitBtn.addEventListener('click', () => {
+exitBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
     addBook.classList.toggle('add-book-enlarged');
-    console.log(addBook.classList);
 });
+
+addbookBtn.addEventListener('click', addBookToLibrary);
