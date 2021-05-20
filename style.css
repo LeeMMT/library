@@ -176,12 +176,13 @@ i:hover {
     height: auto;
     padding: 3px 0px;
     display: grid;
-    grid-template-columns: 2.5fr 1fr 0.5fr 0.5fr auto;
+    grid-template-columns: 2.5fr 1fr 0.5fr 0.5fr auto auto;
     grid-template-rows: auto;
     border-style: solid;
     border-color: #D8D8D8;
     border-bottom-width: 1px;
     margin-bottom: 6px;
+    column-gap: 4px;
 }
 
 .book-card-header {

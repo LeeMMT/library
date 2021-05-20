@@ -53,6 +53,10 @@ const bookCardGenerator = function(e)  {
     const author = document.createElement('p');
     const pages = document.createElement('p');
     const shelf = document.createElement('p');
+    const editIcon = document.createElement('i');
+    editIcon.classList.add('far');
+    editIcon.classList.add('fa-edit');
+    editIcon.classList.add('fa-xs');
     const trashIcon = document.createElement('i');
     trashIcon.classList.add('far');
     trashIcon.classList.add('fa-trash-alt');
@@ -66,6 +70,7 @@ const bookCardGenerator = function(e)  {
     bookCard.appendChild(author);
     bookCard.appendChild(pages);
     bookCard.appendChild(shelf);
+    bookCard.appendChild(editIcon);
     bookCard.appendChild(trashIcon);
     shelfArea.appendChild(bookCard);
 }
