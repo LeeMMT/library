@@ -11,15 +11,15 @@ let library = [
     {title: 'The Three Body Problem',
     author: 'Liu Cixin',
     pages: '448',
-    read: true},
+    shelf: 'read'},
     {title: 'The Dark Forest',
     author: 'Liu Cixin',
     pages: '513',
-    read: true},
+    shelf: 'read'},
     {title: 'Death\'s End',
     author: 'Liu Cixin',
     pages: '605',
-    read: true}];
+    shelf: 'read'}];
 
 //Functions
 
