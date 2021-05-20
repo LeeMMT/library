@@ -48,7 +48,8 @@ header {
 
 #header-wrapper {
     display: flex;
-    height: 100%;
+    align-items: baseline;
+    justify-content: space-between;
     width: 800px;
 }
 
@@ -57,10 +58,7 @@ header div#header-left {
     align-items:center;
 }
 
-header nav#header-right {
-    display: flex;
-    align-items: center;
-    margin-left: auto;
+nav {
     font-family: Helvetica, Arial, sans-serif;
 }
 
