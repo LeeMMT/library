@@ -33,6 +33,7 @@ body {
     width: 800px;
     display: flex;
     flex-direction: column;
+    align-items: space-between;
 }
 
 #layout-grid {
@@ -55,7 +56,8 @@ header {
 
 #header-wrapper {
     display: flex;
-    height: 100%;
+    align-items: baseline;
+    justify-content: space-between;
     width: 800px;
 }
 
@@ -64,10 +66,7 @@ header div#header-left {
     align-items:center;
 }
 
-header nav#header-right {
-    display: flex;
-    align-items: center;
-    margin-left: auto;
+nav {
     font-family: Helvetica, Arial, sans-serif;
 }
 
@@ -137,6 +136,7 @@ i:hover {
     height: 1em;
     overflow: hidden;
     transition: width 1s, height 1s;
+    margin-left: auto;
 }
 
 .add-book-enlarged {
@@ -176,7 +176,7 @@ i:hover {
     height: auto;
     padding: 3px 0px;
     display: grid;
-    grid-template-columns: 2.5fr 1fr 0.5fr 0.5fr;
+    grid-template-columns: 2.5fr 1fr 0.5fr 0.5fr auto;
     grid-template-rows: auto;
     border-style: solid;
     border-color: #D8D8D8;
@@ -193,6 +193,10 @@ i:hover {
         width: 95vw;
     }
 
+    #container {
+        align-items: center;
+    }
+
     #layout-grid {
         grid-template-columns: 1fr;
         grid-template-rows: auto 1fr;
@@ -200,6 +204,11 @@ i:hover {
             'top'
             'bottom'
         ;
+    }
+
+.book-card {
+        width: 80vw;
+        grid-template-columns: 2.5fr 1fr 0.5fr 0.5fr;
     }
 
     #utility {

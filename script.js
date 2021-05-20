@@ -53,14 +53,20 @@ const bookCardGenerator = function(e)  {
     const author = document.createElement('p');
     const pages = document.createElement('p');
     const shelf = document.createElement('p');
+    const trashIcon = document.createElement('i');
+    trashIcon.classList.add('far');
+    trashIcon.classList.add('fa-trash-alt');
+    trashIcon.classList.add('fa-xs');
     title.textContent = e.title;
     author.textContent = e.author;
     pages.textContent = e.pages;
     shelf.textContent = e.shelf;
+    
     bookCard.appendChild(title);
     bookCard.appendChild(author);
     bookCard.appendChild(pages);
     bookCard.appendChild(shelf);
+    bookCard.appendChild(trashIcon);
     shelfArea.appendChild(bookCard);
 }
 
