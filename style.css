@@ -219,7 +219,7 @@ p.invisible {
 
 .book-card {
         width: 80vw;
-        grid-template-columns: 2.5fr 1fr 0.5fr 0.5fr;
+        grid-template-columns: 2.5fr 1fr 0.5fr 0.5fr auto auto;
     }
 
     #utility {
