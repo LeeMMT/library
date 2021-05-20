@@ -77,6 +77,8 @@ const bookCardGenerator = function(e)  {
     bookCard.appendChild(shelf);
     bookCard.appendChild(iconArea);
     shelfArea.appendChild(bookCard);
+
+    trashIcon.addEventListener('click', console.log('yo'));
 }
 
 const libraryLoad = function() {
