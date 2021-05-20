@@ -113,8 +113,6 @@ button {
 
 button:hover {
     border-color: #5F4E30;
-    transform: scale(1.1);
-    background-color: #D8D8D8;
     cursor: pointer;
 }
 
@@ -142,6 +140,7 @@ i:hover {
 .add-book-enlarged {
     width: 250px;
     height: 218px;
+    border-color: #5F4E30;
 }
 
 .add-book form {
@@ -150,6 +149,17 @@ i:hover {
 
 .add-book p {
     margin-bottom: 6px;
+}
+
+p.visible {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0.5s, opacity 0.5s linear;
+}
+
+p.invisible {
+    visibility: hidden;
+    opacity: 0;   
 }
 
 #shelf-area {

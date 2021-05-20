@@ -83,6 +83,7 @@ libraryLoad();
 
 addBook.addEventListener('click', (e) => {
     if (addBook.classList.contains('add-book-enlarged') === false) {
+        document.querySelector('div.add-book p').classList.toggle('invisible');
         addBook.classList.toggle('add-book-enlarged');
     }
 })
@@ -90,6 +91,7 @@ addBook.addEventListener('click', (e) => {
 exitBtn.addEventListener('click', (e) => {
     e.stopPropagation();
     addBook.classList.toggle('add-book-enlarged');
+    document.querySelector('div.add-book p').classList.toggle('invisible');
 });
 
 addbookBtn.addEventListener('click', addBookToLibrary);
