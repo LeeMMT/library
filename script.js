@@ -49,10 +49,12 @@ const addBookToLibrary = function() {
 const bookCardGenerator = function(e)  {
     const bookCard = document.createElement('div');
     bookCard.classList.toggle('book-card');
+    bookCard.setAttribute('data-attribute', `${library.indexOf(e)}`);
     const title = document.createElement('p');
     const author = document.createElement('p');
     const pages = document.createElement('p');
     const shelf = document.createElement('p');
+    const iconArea = document.createElement('div');
     const editIcon = document.createElement('i');
     editIcon.classList.add('far');
     editIcon.classList.add('fa-edit');
@@ -61,6 +63,9 @@ const bookCardGenerator = function(e)  {
     trashIcon.classList.add('far');
     trashIcon.classList.add('fa-trash-alt');
     trashIcon.classList.add('fa-xs');
+    trashIcon.style.marginLeft = '4px';
+    iconArea.appendChild(editIcon);
+    iconArea.appendChild(trashIcon);
     title.textContent = e.title;
     author.textContent = e.author;
     pages.textContent = e.pages;
@@ -70,8 +75,7 @@ const bookCardGenerator = function(e)  {
     bookCard.appendChild(author);
     bookCard.appendChild(pages);
     bookCard.appendChild(shelf);
-    bookCard.appendChild(editIcon);
-    bookCard.appendChild(trashIcon);
+    bookCard.appendChild(iconArea);
     shelfArea.appendChild(bookCard);
 }
 

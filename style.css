@@ -72,6 +72,7 @@ nav {
 
 h1 {
     font-size: 2.5em;
+    font-family: Georgia;
     color: #FBF6EF;
 }
 
@@ -184,14 +185,14 @@ p.invisible {
     box-sizing: content-box;
     width: 500px;
     height: auto;
-    padding: 3px 0px;
+    padding:6px 0px;
     display: grid;
-    grid-template-columns: 2.5fr 1fr 0.5fr 0.5fr auto auto;
+    grid-template-columns: 2.5fr 1fr 0.5fr 0.5fr auto;
     grid-template-rows: auto;
     border-style: solid;
     border-color: #D8D8D8;
     border-bottom-width: 1px;
-    margin-bottom: 6px;
+    margin-bottom: 0px;
     column-gap: 4px;
 }
 
@@ -200,7 +201,7 @@ p.invisible {
 }
 
 @media screen and (max-width: 800px) {
-    #header-wrapper, #container, .book-card {
+    #header-wrapper, #container {
         width: 95vw;
     }
 
@@ -217,9 +218,8 @@ p.invisible {
         ;
     }
 
-.book-card {
-        width: 80vw;
-        grid-template-columns: 2.5fr 1fr 0.5fr 0.5fr auto auto;
+.book-card, .book-card-header {
+        grid-template-columns: 2.5fr 1fr 0.5fr 0.5fr auto;
     }
 
     #utility {
