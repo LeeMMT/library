@@ -22,7 +22,7 @@ body {
 
 #layout-grid {
     display: grid;
-    grid-template-columns: 300px 500px;
+    grid-template-columns: 500px 300px;
     grid-template-areas: 'left right';
     margin-top: 1em;
 }
@@ -47,21 +47,22 @@ header {
 }
 
 #shelf-area {
-    grid-area: right;
+    grid-area: left;
 }
 
 #utility {
-    grid-area: left;
+    grid-area: right;
 }
 
 #utility-area {
     box-sizing: border-box;
     border-style: solid;
     border-color: #D8D8D8;
-    border-right-width: 1px;
+    border-left-width: 1px;
     width: 275px;
     height: 275px;
-    padding-right: 25px;
+    padding-left: 25px;
+    margin-left: 25px;
 }
 
 .flex-column {
@@ -73,7 +74,7 @@ header {
     display: flex;
     align-items: baseline;
     justify-content: space-between;
-    width: 247px;
+    width: 230px;
 }
 
 .flex-row-label {
@@ -153,14 +154,14 @@ i:hover {
     padding: 4px 9px;
     width: 68px;
     height: 1em;
-    margin-left: auto;
+    margin-right: auto;
     overflow: hidden;
     transition: width 1s, height 1s;
 }
 
 .add-book-enlarged {
     box-sizing: border-box;
-    width: 267px;
+    width: 250px;
     height: 267px;
     border-color: #5F4E30;
     
