@@ -1,6 +1,6 @@
 const shelfArea = document.querySelector('#shelf-area');
 const addBook = document.querySelector('.add-book');
-const exitBtn = document.querySelector('div.add-book i');
+const exitBtns = document.querySelectorAll('div.flex-row i');
 const editBook = document.querySelector('.edit-book');
 const addbookBtn = document.querySelector('div.add-book button');
 const titleData = document.querySelector('input#title');
@@ -103,21 +103,28 @@ libraryLoad();
 
 //To open and close add book form
 
-addBook.addEventListener('click', (e) => {
-    if (addBook.classList.contains('add-book-enlarged') === false) {
+addBook.addEventListener('click', () => {
+    if (addBook.classList.contains('form-enlarged') === false) {
         document.querySelector('div.add-book p').classList.toggle('invisible');
-        addBook.classList.toggle('add-book-enlarged');
+        addBook.classList.toggle('form-enlarged');
     }
-})
-
-exitBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    addBook.classList.toggle('add-book-enlarged');
-    document.querySelector('div.add-book p').classList.toggle('invisible');
 })
 
 addbookBtn.addEventListener('click', addBookToLibrary);
 
 //To open and close edit book form
 
-editBook.addEventListener('click', )
+editBook.addEventListener('click', () => {
+    if (editBook.classList.contains('form-enlarged') === false) {
+        document.querySelector('div.edit-book p').classList.toggle('invisible');
+        editBook.classList.toggle('form-enlarged');
+    }
+})
+
+exitBtns.forEach(e => {
+    e.addEventListener('click', (e) => {
+        e.stopPropagation();
+        e.target.parentElement.parentElement.classList.toggle('form-enlarged');
+        document.querySelector('e.target.parentElement p').classList.toggle('invisible');
+    })
+})

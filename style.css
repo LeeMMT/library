@@ -149,9 +149,8 @@ i:hover {
     background-color: #FBF6EF;
     border-style: solid;
     border-width: 1px;
-    border-radius: 2px;
     border-color: #D8D8D8;
-    font-size: 1em;
+    font-size: 1.1em;
     padding: 4px 9px;
     width: 68px;
     height: 1em;
@@ -166,9 +165,8 @@ i:hover {
     background-color: #FBF6EF;
     border-style: solid;
     border-width: 1px;
-    border-radius: 2px;
     border-color: #D8D8D8;
-    font-size: 1em;
+    font-size: 1.1em;
     padding: 4px 9px;
     width: 68px;
     height: 1em;
@@ -178,10 +176,10 @@ i:hover {
     transition: width 1s, height 1s;
 }
 
-.add-book-enlarged, .edit-book-enlarged {
+.form-enlarged {
     box-sizing: border-box;
     width: 250px;
-    height: 235px;
+    height: 249px;
     border-color: #5F4E30;
     
 }
