@@ -122,6 +122,6 @@ exitBtns.forEach(e => {
     e.addEventListener('click', (e) => {
         e.stopPropagation();
         e.target.parentElement.parentElement.classList.toggle('form-enlarged');
-        document.querySelector(`${e.target.parentElement} p`).classList.toggle('invisible');
+        e.target.parentElement.childNodes[1].classList.toggle('invisible');
     })
 })
