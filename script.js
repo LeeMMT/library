@@ -1,6 +1,7 @@
 const shelfArea = document.querySelector('#shelf-area');
 const addBook = document.querySelector('.add-book');
 const exitBtn = document.querySelector('div.add-book i');
+const editBook = document.querySelector('.edit-book');
 const addbookBtn = document.querySelector('div.add-book button');
 const titleData = document.querySelector('input#title');
 const authorData = document.querySelector('input#author');
@@ -100,6 +101,8 @@ const libraryLoad = function() {
 
 libraryLoad();
 
+//To open and close add book form
+
 addBook.addEventListener('click', (e) => {
     if (addBook.classList.contains('add-book-enlarged') === false) {
         document.querySelector('div.add-book p').classList.toggle('invisible');
@@ -111,6 +114,10 @@ exitBtn.addEventListener('click', (e) => {
     e.stopPropagation();
     addBook.classList.toggle('add-book-enlarged');
     document.querySelector('div.add-book p').classList.toggle('invisible');
-});
+})
 
 addbookBtn.addEventListener('click', addBookToLibrary);
+
+//To open and close edit book form
+
+editBook.addEventListener('click', )

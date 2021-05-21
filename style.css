@@ -148,7 +148,8 @@ i:hover {
     flex-direction: column;
     background-color: #FBF6EF;
     border-style: solid;
-    border-width: 1px;;
+    border-width: 1px;
+    border-radius: 2px;
     border-color: #D8D8D8;
     font-size: 1em;
     padding: 4px 9px;
@@ -159,19 +160,38 @@ i:hover {
     transition: width 1s, height 1s;
 }
 
-.add-book-enlarged {
+.edit-book {
+    display: flex;
+    flex-direction: column;
+    background-color: #FBF6EF;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 2px;
+    border-color: #D8D8D8;
+    font-size: 1em;
+    padding: 4px 9px;
+    width: 68px;
+    height: 1em;
+    overflow: hidden;
+    margin-right: auto;
+    margin-top: 4px;
+    transition: width 1s, height 1s;
+}
+
+.add-book-enlarged, .edit-book-enlarged {
     box-sizing: border-box;
     width: 250px;
-    height: 267px;
+    height: 235px;
     border-color: #5F4E30;
     
 }
 
-.add-book form {
+.add-book form, .edit-book form {
     margin-top: 10px;
 }
 
-.add-book p {
+.add-book p, .edit-book p {
+    font-size: 0.9em;
     margin-bottom: 6px;
 }
 
@@ -186,12 +206,12 @@ p.invisible {
     opacity: 0;   
 }
 
-.add-book:hover {
+.add-book:hover, .edit-book:hover {
     border-color: #5F4E30;
     cursor: pointer;
 }
 
-.add-book-enlarged:hover {
+.add-book-enlarged:hover, .edit-book-enlarged:hover {
     cursor: auto;
 }
 

@@ -18,6 +18,15 @@
     <div id='wrapper'>
         <div id='container'>
             <div id='layout-grid'>
+                <section id='shelf-area'>
+                    <div class='book-card book-card-header'>
+                        <p>title</p>
+                        <p>author</p>
+                        <p>pages</p>
+                        <p>shelf</p>
+                        <div><i class='far fa-edit fa-xs invisible-icon'></i><i class='far fa-trash-alt fa-xs l-margin invisible-icon'></i></div>
+                    </div>
+                </section>
                 <section id='utility'>
                     <div id='utility-area'>
                         <div class='add-book'>
@@ -36,15 +45,22 @@
                             </div>
                             <button type='submit'>Add book</button>
                         </div>
-                    </div>
-                </section>
-                <section id='shelf-area'>
-                    <div class='book-card book-card-header'>
-                        <p>title</p>
-                        <p>author</p>
-                        <p>pages</p>
-                        <p>shelf</p>
-                        <div><i class='far fa-edit fa-xs invisible-icon'></i><i class='far fa-trash-alt fa-xs l-margin invisible-icon'></i></div>
+                        <div class='edit-book'>
+                            <div class='flex-row'>
+                                <p class='visible'>Edit book</p>
+                                <i class="fas fa-times" style='margin-left: auto'></i>
+                            </div>
+                            <label for='title'>Title</label>
+                            <input type='text' id='title' name='title'>
+                            <label for='author'>Author</label>
+                            <input type='text' id='author' name='author'>
+                            <label for='pages'>Pages</label>
+                            <input type='text' id='pages' name='pages'>
+                            <div class='flex-row'>
+                                <label for='progress'>Progress:</label><select name='progress' id='progress'><option value='read'>Read</option><option value='reading'>Reading</option><option value='unread'>Unread</option></select>
+                            </div>
+                            <button type='submit'>Add book</button>
+                        </div>
                     </div>
                 </section>
             </div>
