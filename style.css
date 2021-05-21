@@ -61,7 +61,7 @@ header {
     border-right-width: 1px;
     width: 275px;
     height: 275px;
-    padding: 4px;
+    padding-right: 25px;
 }
 
 .flex-column {
