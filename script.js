@@ -49,6 +49,16 @@ const addBookToLibrary = function() {
     bookCardGenerator(library[library.length - 1]);
 }
 
+const deleteBook = function(e) {
+    const DataAtr = +e.target.parentElement.parentElement.getAttribute('data-attribute');
+    document.querySelector(`div[data-attribute='${DataAtr}']`).remove();
+    library.splice(DataAtr, 1);
+    const bookCards = document.querySelectorAll('div.book-card');
+    for (let i = DataAtr + 1; i < bookCards.length; i++) {
+        bookCards[i].setAttribute('data-attribute', i - 1);
+    }
+}
+
 const bookCardGenerator = function(e)  {
     const bookCard = document.createElement('div');
     bookCard.classList.toggle('book-card');
@@ -81,7 +91,7 @@ const bookCardGenerator = function(e)  {
     bookCard.appendChild(iconArea);
     shelfArea.appendChild(bookCard);
 
-    trashIcon.addEventListener('click', console.log('yo'));
+    trashIcon.addEventListener('click', deleteBook);
 }
 
 const libraryLoad = function() {
