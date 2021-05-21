@@ -3,10 +3,20 @@ const addBook = document.querySelector('.add-book');
 const exitBtns = document.querySelectorAll('div.flex-row i');
 const editBook = document.querySelector('.edit-book');
 const addbookBtn = document.querySelector('div.add-book button');
-const titleData = document.querySelector('input#title');
-const authorData = document.querySelector('input#author');
-const pagesData = document.querySelector('input#pages');
-const progressData = document.querySelector('select#progress');
+const editBookBtn = document.querySelector('div.edit-book button');
+const addBookForm = {
+    titleData: titleData = document.querySelector('input#title'),
+    authorData: document.querySelector('input#author'),
+    pagesData: document.querySelector('input#pages'),
+    shelfData: document.querySelector('select#progress')
+}
+const editBookForm = {
+    titleData: document.querySelector('input#edit-title'),
+    authorData: document.querySelector('input#edit-author'),
+    pagesData: document.querySelector('input#edit-pages'),
+    shelfData: document.querySelector('select#edit-progress')
+}
+let indexOfEdit = null;
 
 let library = [
     {title: 'The Three Body Problem',
@@ -36,18 +46,36 @@ book.prototype.info = function() {
 }
 
 const addBookToLibrary = function() {
-    const title = titleData.value;
-    const author = authorData.value;
-    const pages = pagesData.value;
-    const shelf = progressData.value;
+    const title = addBookForm.titleData.value;
+    const author = addBookForm.authorData.value;
+    const pages = addBookForm.pagesData.value;
+    const shelf = addBookForm.shelfData.value;
     if (library.some(element => title.toLowerCase() === element.title.toLocaleLowerCase() && author.toLocaleLowerCase() === element.author.toLocaleLowerCase())) {
         return;
     }
-    if (!titleData.value || !authorData.value) {
+    if (!addBookForm.titleData.value || !addBookForm.authorData.value) {
         return;
     }
     library.push(new book(title, author, pages, shelf));
     bookCardGenerator(library[library.length - 1]);
+}
+
+const openEditBook = function(e) {
+    const DataAtr = +e.target.parentElement.parentElement.getAttribute('data-attribute');
+    indexOfEdit = DataAtr;
+    if (editBook.classList.contains('form-enlarged') === false) {
+        document.querySelector('div.edit-book p').classList.toggle('invisible');
+        editBook.classList.toggle('form-enlarged');
+    }
+    editBookForm.titleData.value = library[DataAtr].title;
+    editBookForm.authorData.value = library[DataAtr].author;
+    editBookForm.pagesData.value = library[DataAtr].pages;
+    editBookForm.shelfData.value = library[DataAtr].shelf;
+}
+
+const updateChanges = function(index) {
+    const editedBook = new book(title, author, pages, shelf);
+    library.splice(DataAtr, 1, editedBook);
 }
 
 const deleteBook = function(e) {
@@ -92,6 +120,7 @@ const bookCardGenerator = function(e)  {
     bookCard.appendChild(iconArea);
     shelfArea.appendChild(bookCard);
 
+    editIcon.addEventListener('click', openEditBook);
     trashIcon.addEventListener('click', deleteBook);
 }
 
@@ -117,6 +146,8 @@ editBook.addEventListener('click', () => {
         editBook.classList.toggle('form-enlarged');
     }
 })
+
+editBookBtn.addEventListener('click', updateChanges);
 
 exitBtns.forEach(e => {
     e.addEventListener('click', (e) => {
