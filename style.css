@@ -5,6 +5,8 @@ body {
     color: black;
 }
 
+/*Structure*/
+
 #wrapper {
     width: 100%;
     display: flex;
@@ -12,33 +14,15 @@ body {
     align-items: center;
 }
 
-.flex-column {
-    display: flex;
-    flex-direction: column;
-}
-
-.flex-row {
-    display: flex;
-    justify-content: space-between;
-    width: 250px;
-}
-
-.flex-row-label {
-    display: flex;
-    justify-content: space-between;
-    width: 250px;
-}
-
 #container {
     width: 800px;
     display: flex;
     flex-direction: column;
-    align-items: space-between;
 }
 
 #layout-grid {
     display: grid;
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 300px 500px;
     grid-template-areas: 'left right';
 }
 
@@ -59,6 +43,40 @@ header {
     align-items: baseline;
     justify-content: space-between;
     width: 800px;
+}
+
+#shelf-area {
+    grid-area: right;
+}
+
+#utility {
+    grid-area: left;
+}
+
+#utility-area {
+    box-sizing: border-box;
+    background-color: #D8D8D8;
+    width: 275px;
+    height: 275px;
+    padding: 4px;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    width: 247px;
+}
+
+.flex-row-label {
+    display: flex;
+    justify-content: space-between;
+    width: 250px;
 }
 
 header div#header-left {
@@ -122,6 +140,10 @@ i:hover {
     color: #5F4E30;
 }
 
+.l-margin {
+    margin-left: 4px;
+}
+
 .add-book {
     display: flex;
     flex-direction: column;
@@ -135,13 +157,14 @@ i:hover {
     height: 1em;
     overflow: hidden;
     transition: width 1s, height 1s;
-    margin-left: auto;
 }
 
 .add-book-enlarged {
-    width: 250px;
-    height: 218px;
+    box-sizing: border-box;
+    width: 267px;
+    height: 267px;
     border-color: #5F4E30;
+    
 }
 
 .add-book form {
@@ -155,20 +178,12 @@ i:hover {
 p.visible {
     visibility: visible;
     opacity: 1;
-    transition: visibility 0.5s, opacity 0.5s linear;
+    transition: visibility 0.3s, opacity 0.3s linear;
 }
 
 p.invisible {
     visibility: hidden;
     opacity: 0;   
-}
-
-#shelf-area {
-    grid-area: left;
-}
-
-#utility {
-    grid-area: right;
 }
 
 .add-book:hover {
@@ -196,6 +211,10 @@ p.invisible {
     column-gap: 4px;
 }
 
+.invisible-icon {
+    visibility: hidden;
+}
+
 .book-card-header {
     font-size: 0.9em;
 }
@@ -211,22 +230,6 @@ p.invisible {
 
     #layout-grid {
         grid-template-columns: 1fr;
-        grid-template-rows: auto 1fr;
-        grid-template-areas:
-            'top'
-            'bottom'
-        ;
+        grid-template-areas: 'left right';
     }
-
-.book-card, .book-card-header {
-        grid-template-columns: 2.5fr 1fr 0.5fr 0.5fr auto;
-    }
-
-    #utility {
-        grid-area: top;
-    }
-
-    #shelf-area {
-        grid-area: bottom;
-    }
-  }
+}

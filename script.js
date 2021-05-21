@@ -23,11 +23,11 @@ let library = [
 
 //Functions
 
-const book = function(title, author, pages, read) {
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.read = read
+const book = function(title, author, pages, shelf) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.shelf= shelf;
 }
 
 book.prototype.info = function() {
@@ -38,11 +38,14 @@ const addBookToLibrary = function() {
     const title = titleData.value;
     const author = authorData.value;
     const pages = pagesData.value;
-    const read = progressData.value;
+    const shelf = progressData.value;
     if (library.some(element => title.toLowerCase() === element.title.toLocaleLowerCase() && author.toLocaleLowerCase() === element.author.toLocaleLowerCase())) {
         return;
     }
-    library.push(new book(title, author, pages, read));
+    if (!titleData.value || !authorData.value) {
+        return;
+    }
+    library.push(new book(title, author, pages, shelf));
     bookCardGenerator(library[library.length - 1]);
 }
 
