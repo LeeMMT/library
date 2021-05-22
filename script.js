@@ -79,8 +79,22 @@ const openEditBook = function(e) {
 }
 
 const updateChanges = function(index) {
+    const title = editBookForm.titleData.value;
+    const author = editBookForm.authorData.value;
+    const pages = editBookForm.pagesData.value;
+    const shelf = editBookForm.shelfData.value;
     const editedBook = new book(title, author, pages, shelf);
-    library.splice(DataAtr, 1, editedBook);
+    library.splice(indexOfEdit, 1, editedBook);
+    const bookCardToEdit = document.querySelector(`div[data-attribute='${indexOfEdit}']`);
+    bookCardToEdit.children[0].textContent = editedBook.title;
+    bookCardToEdit.children[1].textContent = editedBook.author;
+    bookCardToEdit.children[2].textContent = editedBook.pages;
+    bookCardToEdit.children[3].textContent = editedBook.shelf;
+
+    editBookForm.titleData.value = '';
+    editBookForm.authorData.value = '';
+    editBookForm.pagesData.value = '';
+    editBookForm.shelfData.value = '';
 }
 
 const deleteBook = function(e) {
@@ -158,6 +172,6 @@ exitBtns.forEach(e => {
     e.addEventListener('click', (e) => {
         e.stopPropagation();
         e.target.parentElement.parentElement.classList.toggle('form-enlarged');
-        e.target.parentElement.childNodes[1].classList.toggle('invisible');
+        e.target.parentElement.children[0].classList.toggle('invisible');
     })
 })
