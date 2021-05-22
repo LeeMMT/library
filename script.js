@@ -58,6 +58,11 @@ const addBookToLibrary = function() {
     }
     library.push(new book(title, author, pages, shelf));
     bookCardGenerator(library[library.length - 1]);
+
+    addBookForm.titleData.value = '';
+    addBookForm.authorData.value = '';
+    addBookForm.pagesData.value = '';
+    addBookForm.shelfData.value = '';
 }
 
 const openEditBook = function(e) {
