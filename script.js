@@ -1,4 +1,5 @@
-const shelfArea = document.querySelector('#shelf-area');
+const shelfArea = document.querySelector('section#shelf-area div:nth-child(2)');
+const changeShelfSelect = document.querySelector('select');
 const addBook = document.querySelector('.add-book');
 const exitBtns = document.querySelectorAll('div.flex-row i');
 const editBook = document.querySelector('.edit-book');
@@ -43,6 +44,15 @@ const book = function(title, author, pages, shelf) {
 
 book.prototype.info = function() {
     return `${this.title} by ${this.author}, ${this.pages} pages, ${(this.read) ? 'finished reading' : 'not read yet'}`;
+}
+
+const changeShelf = function() {
+    shelfArea.innerHTML = '';
+   if (changeShelfSelect.value === 'All') {
+    library.forEach(element => bookCardGenerator(element));
+    } else {
+        library.filter(e => e.shelf === changeShelfSelect.value.toLocaleLowerCase()).forEach(element => bookCardGenerator(element));
+    } 
 }
 
 const addBookToLibrary = function() {
@@ -148,6 +158,8 @@ const libraryLoad = function() {
 }
 
 libraryLoad();
+
+changeShelfSelect.addEventListener('change', changeShelf);
 
 addBook.addEventListener('click', () => {
     if (addBook.classList.contains('form-enlarged') === false) {
