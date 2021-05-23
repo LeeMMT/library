@@ -109,10 +109,10 @@ a {
     font-size: 1em;
 }
 
-#utlility-area label {
+.add-book label, .edit-book label {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 0.9em;
-    margin-bottom: 2px;
+    margin-bottom: 4px;
 }
 
 input, select {
@@ -124,6 +124,16 @@ select {
     height: 24px;
     width: min-content;
     padding: 1px 2px;
+    font-size: 0.9em;
+}
+
+select#book-controls {
+    font-size: 1em;
+    border-width: 2px;
+    border-radius: 2px;
+    border-color: #D8D8D8;
+    background-color: #FBF6EF;
+    margin-bottom: 0px;
 }
 
 button {
@@ -131,8 +141,6 @@ button {
     border-style: solid;
     border-width: 1px;
     border-radius: 2px;
-    background-color: #FBF6EF;
-    border-color: #D8D8D8;
     font-size: 1em;
 }
 
@@ -155,10 +163,11 @@ i:hover {
     flex-direction: column;
     background-color: #FBF6EF;
     border-style: solid;
-    border-width: 1px;
+    border-width: 2px;
+    border-radius: 2px;
     border-color: #D8D8D8;
-    font-size: 1.1em;
-    padding: 4px 9px;
+    font-size: 1em;
+    padding: 4px 6px;
     width: 68px;
     height: 1em;
     margin-right: auto;
@@ -171,10 +180,11 @@ i:hover {
     flex-direction: column;
     background-color: #FBF6EF;
     border-style: solid;
-    border-width: 1px;
+    border-width: 2px;
+    border-radius: 2px;
     border-color: #D8D8D8;
-    font-size: 1.1em;
-    padding: 4px 9px;
+    font-size: 1em;
+    padding: 4px 6px;
     width: 68px;
     height: 1em;
     overflow: hidden;
@@ -183,12 +193,20 @@ i:hover {
     transition: width 1s, height 1s;
 }
 
+div.add-book p, div.edit-book p {
+    font-size: 1em;
+}
+
 .form-enlarged {
     box-sizing: border-box;
     width: 250px;
     height: 249px;
     border-color: #5F4E30;
     
+}
+
+.form-enlarged:hover {
+    cursor: initial;
 }
 
 .add-book form, .edit-book form {
@@ -216,7 +234,7 @@ p.invisible {
     cursor: pointer;
 }
 
-.add-book-enlarged:hover, .edit-book-enlarged:hover {
+.form-enlarged:hover {
     cursor: auto;
 }
 
