@@ -2,21 +2,15 @@ const shelfArea = document.querySelector('section#shelf-area div:nth-child(2)');
 const changeShelfSelect = document.querySelector('select');
 const addBook = document.querySelector('.add-book');
 const exitBtns = document.querySelectorAll('div.flex-row i');
-const editBook = document.querySelector('.edit-book');
 const addbookBtn = document.querySelector('div.add-book button');
-const editBookBtn = document.querySelector('div.edit-book button');
-const addBookForm = {
+
+const bookForm = {
     titleData: titleData = document.querySelector('input#title'),
     authorData: document.querySelector('input#author'),
     pagesData: document.querySelector('input#pages'),
     shelfData: document.querySelector('select#progress')
 }
-const editBookForm = {
-    titleData: document.querySelector('input#edit-title'),
-    authorData: document.querySelector('input#edit-author'),
-    pagesData: document.querySelector('input#edit-pages'),
-    shelfData: document.querySelector('select#edit-progress')
-}
+
 let indexOfEdit = null;
 
 let library = [
@@ -55,56 +49,72 @@ const changeShelf = function() {
     } 
 }
 
+const btnSubmit = function() {
+    if (addbookBtn.textContent === 'Add book') {
+        addBookToLibrary();
+    } else (updateChanges())
+}
+
 const addBookToLibrary = function() {
-    const title = addBookForm.titleData.value;
-    const author = addBookForm.authorData.value;
-    const pages = addBookForm.pagesData.value;
-    const shelf = addBookForm.shelfData.value;
+    const title = bookForm.titleData.value;
+    const author = bookForm.authorData.value;
+    const pages = bookForm.pagesData.value;
+    const shelf = bookForm.shelfData.value;
     if (library.some(element => title.toLowerCase() === element.title.toLocaleLowerCase() && author.toLocaleLowerCase() === element.author.toLocaleLowerCase())) {
         return;
     }
-    if (!addBookForm.titleData.value || !addBookForm.authorData.value) {
+    if (!bookForm.titleData.value || !bookForm.authorData.value) {
         return;
     }
     library.push(new book(title, author, pages, shelf));
-    bookCardGenerator(library[library.length - 1]);
 
-    addBookForm.titleData.value = '';
-    addBookForm.authorData.value = '';
-    addBookForm.pagesData.value = '';
-    addBookForm.shelfData.value = '';
+    if (changeShelfSelect.selectedIndex === 0 || shelf === changeShelfSelect.value) {
+        bookCardGenerator(library[library.length - 1]);
+    }
+
+    bookForm.titleData.value = '';
+    bookForm.authorData.value = '';
+    bookForm.pagesData.value = '';
+    bookForm.shelfData.selectedIndex = 0;
 }
 
 const openEditBook = function(e) {
     const DataAtr = +e.target.parentElement.parentElement.getAttribute('data-attribute');
     indexOfEdit = DataAtr;
-    if (editBook.classList.contains('form-enlarged') === false) {
-        document.querySelector('div.edit-book p').classList.toggle('invisible');
-        editBook.classList.toggle('form-enlarged');
+    addbookBtn.textContent = 'Save changes';
+    if (addBook.classList.contains('form-enlarged') === false) {
+        document.querySelector('div.add-book p').classList.toggle('invisible');
+        addBook.classList.toggle('form-enlarged');
     }
-    editBookForm.titleData.value = library[DataAtr].title;
-    editBookForm.authorData.value = library[DataAtr].author;
-    editBookForm.pagesData.value = library[DataAtr].pages;
-    editBookForm.shelfData.value = library[DataAtr].shelf;
+    bookForm.titleData.value = library[DataAtr].title;
+    bookForm.authorData.value = library[DataAtr].author;
+    bookForm.pagesData.value = library[DataAtr].pages;
+    bookForm.shelfData.value = library[DataAtr].shelf;
 }
 
 const updateChanges = function(index) {
-    const title = editBookForm.titleData.value;
-    const author = editBookForm.authorData.value;
-    const pages = editBookForm.pagesData.value;
-    const shelf = editBookForm.shelfData.value;
+    const title = bookForm.titleData.value;
+    const author = bookForm.authorData.value;
+    const pages = bookForm.pagesData.value;
+    const shelf = bookForm.shelfData.value;
     const editedBook = new book(title, author, pages, shelf);
     library.splice(indexOfEdit, 1, editedBook);
     const bookCardToEdit = document.querySelector(`div[data-attribute='${indexOfEdit}']`);
-    bookCardToEdit.children[0].textContent = editedBook.title;
-    bookCardToEdit.children[1].textContent = editedBook.author;
-    bookCardToEdit.children[2].textContent = editedBook.pages;
-    bookCardToEdit.children[3].textContent = editedBook.shelf;
 
-    editBookForm.titleData.value = '';
-    editBookForm.authorData.value = '';
-    editBookForm.pagesData.value = '';
-    editBookForm.shelfData.value = '';
+    if (changeShelfSelect.selectedIndex === 0 || editedBook.shelf === changeShelfSelect.value) {
+        bookCardToEdit.children[0].textContent = editedBook.title;
+        bookCardToEdit.children[1].textContent = editedBook.author;
+        bookCardToEdit.children[2].textContent = editedBook.pages;
+        bookCardToEdit.children[3].textContent = editedBook.shelf;
+    } else {
+        bookCardToEdit.remove();
+    }
+
+    bookForm.titleData.value = '';
+    bookForm.authorData.value = '';
+    bookForm.pagesData.value = '';
+    bookForm.shelfData.selectedIndex = 0;
+    addbookBtn.textContent = 'Add book';
 }
 
 const deleteBook = function(e) {
@@ -168,17 +178,7 @@ addBook.addEventListener('click', () => {
     }
 })
 
-addbookBtn.addEventListener('click', addBookToLibrary);
-
-
-editBook.addEventListener('click', () => {
-    if (editBook.classList.contains('form-enlarged') === false) {
-        document.querySelector('div.edit-book p').classList.toggle('invisible');
-        editBook.classList.toggle('form-enlarged');
-    }
-})
-
-editBookBtn.addEventListener('click', updateChanges);
+addbookBtn.addEventListener('click', btnSubmit);
 
 exitBtns.forEach(e => {
     e.addEventListener('click', (e) => {
