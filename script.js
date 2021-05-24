@@ -12,6 +12,7 @@ const bookForm = {
 }
 
 let indexOfEdit = null;
+let indexOfDelete = null;
 
 let library = [
     {title: 'The Three Body Problem',
@@ -179,6 +180,7 @@ const deleteBookConfirmation = function(e) {
             insertedCard.remove();
         }
     })
+    indexOfDelete = null;
 }
 
 const deleteBook = function(DataAtr) {
