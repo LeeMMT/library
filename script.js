@@ -169,7 +169,7 @@ const deleteBookConfirmation = function(e) {
     rightPanel.appendChild(confirm);
     confirmCard.appendChild(leftPanel);
     confirmCard.appendChild(rightPanel);
-    shelfArea.appendChild(confirmCard);
+    shelfArea.insertBefore(confirmCard, document.querySelector(`.book-card[${DataAtr+1}]`));
 }
 
 const deleteBook = function(DataAtr) {
