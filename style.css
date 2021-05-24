@@ -189,24 +189,6 @@ i:hover {
     transition: width 1s, height 1s;
 }
 
-.edit-book {
-    display: flex;
-    flex-direction: column;
-    background-color: #FBF6EF;
-    border-style: solid;
-    border-width: 2px;
-    border-radius: 2px;
-    border-color: #D8D8D8;
-    font-size: 1em;
-    padding: 4px 6px;
-    width: 68px;
-    height: 1em;
-    overflow: hidden;
-    margin-right: auto;
-    margin-top: 4px;
-    transition: width 1s, height 1s;
-}
-
 div.add-book p, div.edit-book p {
     font-size: 1em;
 }
@@ -216,11 +198,6 @@ div.add-book p, div.edit-book p {
     width: 250px;
     height: 249px;
     border-color: #5F4E30;
-    
-}
-
-.form-enlarged:hover {
-    cursor: initial;
 }
 
 .add-book form, .edit-book form {
@@ -278,13 +255,20 @@ p.invisible {
     width: 500px;
     border-style: solid;
     border-color: #D8D8D8;
-    border-bottom-width: 1px;
-    margin-bottom: 0px;
+    border-bottom-width: 0px;
+    height: 0px;
+    overflow: hidden;
+    transition: all 0.2s;
+}
+
+.card-enlarged {
+    margin-bottom: 1px;
+    height: 40px;
 }
 
 .left-panel {
+    height: 40px;
     display: flex;
-    height: 50px;
     align-items: center;
     justify-content: center;
     background-color: #3D3B30;
@@ -297,8 +281,9 @@ p.invisible {
 }
 
 .right-panel {
+    height: 40px;
+    overflow: hidden;
     display: flex;
-    height: 50px;
     align-items: center;
     justify-content: center;
     background-color: #EE332F;

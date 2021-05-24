@@ -169,7 +169,16 @@ const deleteBookConfirmation = function(e) {
     rightPanel.appendChild(confirm);
     confirmCard.appendChild(leftPanel);
     confirmCard.appendChild(rightPanel);
-    shelfArea.insertBefore(confirmCard, document.querySelector(`.book-card[${DataAtr+1}]`));
+    const insertedCard = shelfArea.insertBefore(confirmCard, e.target.parentElement.parentElement.nextSibling);
+    window.setTimeout(() => insertedCard.classList.add('card-enlarged'));
+    insertedCard.addEventListener('click', e => {
+        if (e.target.textContent === 'Cancel') {
+            insertedCard.remove();
+        } else {
+            deleteBook(DataAtr);
+            insertedCard.remove();
+        }
+    })
 }
 
 const deleteBook = function(DataAtr) {
