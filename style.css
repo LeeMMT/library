@@ -158,9 +158,13 @@ button:hover {
     cursor: pointer;
 }
 
+.flex-row i{
+    color: #5F4E30;
+}
+
 i:hover {
     cursor: pointer;
-    color: #5F4E30;
+    color: black;
     transform: scale(1.1);
 }
 

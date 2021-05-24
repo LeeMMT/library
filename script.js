@@ -1,7 +1,7 @@
 const shelfArea = document.querySelector('section#shelf-area div:nth-child(2)');
 const changeShelfSelect = document.querySelector('select');
 const addBook = document.querySelector('.add-book');
-const exitBtn = document.querySelector('div.flex-row i');
+const exitBtn = document.querySelector('.flex-row i');
 const addbookBtn = document.querySelector('div.add-book button');
 
 const bookForm = {
@@ -83,22 +83,18 @@ const openEditBook = function(e) {
     indexOfEdit = DataAtr;
     addbookBtn.textContent = 'Save changes';
     if (document.querySelector('#bottom-row').children.length === 1) {
+        document.querySelector('.flex-row i').remove();
+        const newExitBtn = document.createElement('i');
+        newExitBtn.classList.add('far');
+        newExitBtn.classList.add('fa-window-close');
+        document.querySelector('.flex-row').appendChild(newExitBtn);
+        newExitBtn.addEventListener('click', exitEdit);
         const cancelText = document.createElement('p');
         cancelText.textContent = 'Cancel';
         cancelText.style.fontSize = '0.9em';
         cancelText.style.color = '#00635D';
         document.querySelector('#bottom-row').appendChild(cancelText);
-        cancelText.addEventListener('click', (e) => {
-            e.stopPropagation();
-            addbookBtn.textContent = 'Add book';
-            addBook.classList.toggle('form-enlarged');
-            document.querySelector('div.add-book p').classList.toggle('invisible');
-            bookForm.titleData.value = '';
-            bookForm.authorData.value = '';
-            bookForm.pagesData.value = '';
-            bookForm.shelfData.selectedIndex = 0;
-            cancelText.remove();
-        })
+        cancelText.addEventListener('click', exitEdit);
     }
     if (addBook.classList.contains('form-enlarged') === false) {
         document.querySelector('div.add-book p').classList.toggle('invisible');
@@ -108,6 +104,28 @@ const openEditBook = function(e) {
     bookForm.authorData.value = library[DataAtr].author;
     bookForm.pagesData.value = library[DataAtr].pages;
     bookForm.shelfData.value = library[DataAtr].shelf;
+}
+
+const exitEdit = function(e) {
+    e.stopPropagation();
+            addbookBtn.textContent = 'Add book';
+            addBook.classList.toggle('form-enlarged');
+            document.querySelector('div.add-book p').classList.toggle('invisible');
+            bookForm.titleData.value = '';
+            bookForm.authorData.value = '';
+            bookForm.pagesData.value = '';
+            bookForm.shelfData.selectedIndex = 0;
+            document.querySelector('#bottom-row p').remove();
+            document.querySelector('.flex-row i').remove();
+            const newExitBtn = document.createElement('i');
+            newExitBtn.classList.add('fas');
+            newExitBtn.classList.add('fa-window-minimize');
+            document.querySelector('.flex-row').appendChild(newExitBtn);
+            newExitBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                addBook.classList.toggle('form-enlarged');
+                document.querySelector('div.add-book p').classList.toggle('invisible');
+            })
 }
 
 const updateChanges = function(index) {
@@ -218,6 +236,6 @@ addbookBtn.addEventListener('click', btnSubmit);
 
 exitBtn.addEventListener('click', (e) => {
     e.stopPropagation();
-    e.target.parentElement.parentElement.classList.toggle('form-enlarged');
-    e.target.parentElement.children[0].classList.toggle('invisible');
+    addBook.classList.toggle('form-enlarged');
+    document.querySelector('.flex-row p').classList.toggle('invisible');
 })
