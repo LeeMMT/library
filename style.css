@@ -60,7 +60,7 @@ header {
     border-color: #D8D8D8;
     border-left-width: 1px;
     width: 275px;
-    height: 275px;
+    height: auto;
     padding-left: 25px;
     margin-left: 25px;
 }
