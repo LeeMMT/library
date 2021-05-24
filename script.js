@@ -156,6 +156,10 @@ const updateChanges = function(index) {
 
 const deleteBookConfirmation = function(e) {
     const DataAtr = +e.target.parentElement.parentElement.getAttribute('data-attribute');
+    if (indexOfDelete !== null) {
+        document.querySelector('.confirm-card').remove();
+    }
+    indexOfDelete = DataAtr;
     const confirmCard = document.createElement('div');
     confirmCard.classList.add('confirm-card');
     const leftPanel = document.createElement('div');
@@ -175,12 +179,13 @@ const deleteBookConfirmation = function(e) {
     insertedCard.addEventListener('click', e => {
         if (e.target.textContent === 'Cancel') {
             insertedCard.remove();
+            indexOfDelete = null;
         } else {
             deleteBook(DataAtr);
             insertedCard.remove();
+            indexOfDelete = null;
         }
     })
-    indexOfDelete = null;
 }
 
 const deleteBook = function(DataAtr) {
