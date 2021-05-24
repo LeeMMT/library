@@ -82,6 +82,15 @@ header {
     width: 230px;
 }
 
+#bottom-row {
+    margin-top: 1px;
+}
+
+#bottom-row p:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 .flex-row-label {
     display: flex;
     justify-content: space-between;
@@ -152,6 +161,7 @@ button:hover {
 i:hover {
     cursor: pointer;
     color: #5F4E30;
+    transform: scale(1.1);
 }
 
 .l-margin {
@@ -240,7 +250,7 @@ p.invisible {
 
 .book-card {
     font-size: 1em;
-    box-sizing: content-box;
+    box-sizing: border-box;
     width: 500px;
     height: auto;
     padding:6px 0px;
@@ -253,6 +263,49 @@ p.invisible {
     margin-bottom: 0px;
     column-gap: 4px;
 }
+
+.confirm-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    font-size: 1em;
+    box-sizing: border-box;
+    width: 500px;
+    border-style: solid;
+    border-color: #D8D8D8;
+    border-bottom-width: 1px;
+    margin-bottom: 0px;
+}
+
+.left-panel {
+    display: flex;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    background-color: #3D3B30;
+    color: #FBF6EF;
+}
+
+.left-panel:hover {
+    background-color: #5B5848;
+    cursor: pointer;
+}
+
+.right-panel {
+    display: flex;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    background-color: #EE332F;
+    color: #FBF6EF;
+}
+
+.right-panel:hover {
+    background-color: #F15855;
+    cursor: pointer;
+}
+
 
 .invisible-icon {
     visibility: hidden;

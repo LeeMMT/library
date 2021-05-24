@@ -1,7 +1,7 @@
 const shelfArea = document.querySelector('section#shelf-area div:nth-child(2)');
 const changeShelfSelect = document.querySelector('select');
 const addBook = document.querySelector('.add-book');
-const exitBtns = document.querySelectorAll('div.flex-row i');
+const exitBtn = document.querySelector('div.flex-row i');
 const addbookBtn = document.querySelector('div.add-book button');
 
 const bookForm = {
@@ -82,6 +82,24 @@ const openEditBook = function(e) {
     const DataAtr = +e.target.parentElement.parentElement.getAttribute('data-attribute');
     indexOfEdit = DataAtr;
     addbookBtn.textContent = 'Save changes';
+    if (document.querySelector('#bottom-row').children.length === 1) {
+        const cancelText = document.createElement('p');
+        cancelText.textContent = 'Cancel';
+        cancelText.style.fontSize = '0.9em';
+        cancelText.style.color = '#00635D';
+        document.querySelector('#bottom-row').appendChild(cancelText);
+        cancelText.addEventListener('click', (e) => {
+            e.stopPropagation();
+            addbookBtn.textContent = 'Add book';
+            addBook.classList.toggle('form-enlarged');
+            document.querySelector('div.add-book p').classList.toggle('invisible');
+            bookForm.titleData.value = '';
+            bookForm.authorData.value = '';
+            bookForm.pagesData.value = '';
+            bookForm.shelfData.selectedIndex = 0;
+            cancelText.remove();
+        })
+    }
     if (addBook.classList.contains('form-enlarged') === false) {
         document.querySelector('div.add-book p').classList.toggle('invisible');
         addBook.classList.toggle('form-enlarged');
@@ -117,8 +135,26 @@ const updateChanges = function(index) {
     addbookBtn.textContent = 'Add book';
 }
 
-const deleteBook = function(e) {
+const deleteBookConfirmation = function(e) {
     const DataAtr = +e.target.parentElement.parentElement.getAttribute('data-attribute');
+    const confirmCard = document.createElement('div');
+    confirmCard.classList.add('confirm-card');
+    const leftPanel = document.createElement('div');
+    leftPanel.classList.add('left-panel');
+    const rightPanel = document.createElement('div');
+    rightPanel.classList.add('right-panel');
+    const confirm = document.createElement('p');
+    confirm.textContent = 'Delete';
+    const cancel = document.createElement('p');
+    cancel.textContent = 'Cancel';
+    leftPanel.appendChild(cancel);
+    rightPanel.appendChild(confirm);
+    confirmCard.appendChild(leftPanel);
+    confirmCard.appendChild(rightPanel);
+    shelfArea.appendChild(confirmCard);
+}
+
+const deleteBook = function(DataAtr) {
     document.querySelector(`div[data-attribute='${DataAtr}']`).remove();
     library.splice(DataAtr, 1);
     const bookCards = document.querySelectorAll('div.book-card');
@@ -160,7 +196,7 @@ const bookCardGenerator = function(e)  {
     shelfArea.appendChild(bookCard);
 
     editIcon.addEventListener('click', openEditBook);
-    trashIcon.addEventListener('click', deleteBook);
+    trashIcon.addEventListener('click', deleteBookConfirmation);
 }
 
 const libraryLoad = function() {
@@ -180,10 +216,8 @@ addBook.addEventListener('click', () => {
 
 addbookBtn.addEventListener('click', btnSubmit);
 
-exitBtns.forEach(e => {
-    e.addEventListener('click', (e) => {
-        e.stopPropagation();
-        e.target.parentElement.parentElement.classList.toggle('form-enlarged');
-        e.target.parentElement.children[0].classList.toggle('invisible');
-    })
+exitBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    e.target.parentElement.parentElement.classList.toggle('form-enlarged');
+    e.target.parentElement.children[0].classList.toggle('invisible');
 })
