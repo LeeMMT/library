@@ -14,6 +14,25 @@ const bookForm = {
 let indexOfEdit = null;
 let indexOfDelete = null;
 
+const storageAvailable = function() {
+    var storage;
+    try {
+        storage = window['localStorage'];
+        var x = '__storage_test__';
+        storage.setItem(x, x);
+        storage.removeItem(x);
+        return true;
+    }
+    catch(e) {
+        return e instanceof DOMException && (
+            e.code === 22 ||
+            e.code === 1014 ||
+            e.name === 'QuotaExceededError' ||
+            e.name === 'NS_ERROR_DOM_QUOTA_REACHED') &&
+            (storage && storage.length !== 0);
+    }
+}
+
 let library = [
     {title: 'The Three Body Problem',
     author: 'Liu Cixin',
@@ -43,11 +62,11 @@ book.prototype.info = function() {
 
 const changeShelf = function() {
     shelfArea.innerHTML = '';
-   if (changeShelfSelect.value === 'All') {
-    library.forEach(element => bookCardGenerator(element));
+    if (changeShelfSelect.value === 'All') {
+        storedLibrary.forEach(element => bookCardGenerator(element));
     } else {
-        library.filter(e => e.shelf === changeShelfSelect.value.toLocaleLowerCase()).forEach(element => bookCardGenerator(element));
-    } 
+        storedLibrary.filter(e => e.shelf === changeShelfSelect.value.toLocaleLowerCase()).forEach(element => bookCardGenerator(element));
+    }
 }
 
 const btnSubmit = function() {
@@ -67,7 +86,12 @@ const addBookToLibrary = function() {
     if (!bookForm.titleData.value || !bookForm.authorData.value) {
         return;
     }
+
     library.push(new book(title, author, pages, shelf));
+
+    if (storageAvailable) {
+        window.localStorage.setItem('storedLibrary', JSON.stringify(library));
+    }
 
     if (changeShelfSelect.selectedIndex === 0 || shelf === changeShelfSelect.value) {
         bookCardGenerator(library[library.length - 1]);
@@ -101,6 +125,7 @@ const openEditBook = function(e) {
         document.querySelector('div.add-book p').classList.toggle('invisible');
         addBook.classList.toggle('form-enlarged');
     }
+
     bookForm.titleData.value = library[DataAtr].title;
     bookForm.authorData.value = library[DataAtr].author;
     bookForm.pagesData.value = library[DataAtr].pages;
@@ -109,24 +134,24 @@ const openEditBook = function(e) {
 
 const exitEdit = function(e) {
     e.stopPropagation();
-            addbookBtn.textContent = 'Add book';
-            addBook.classList.toggle('form-enlarged');
-            document.querySelector('div.add-book p').classList.toggle('invisible');
-            bookForm.titleData.value = '';
-            bookForm.authorData.value = '';
-            bookForm.pagesData.value = '';
-            bookForm.shelfData.selectedIndex = 0;
-            document.querySelector('#bottom-row p').remove();
-            document.querySelector('.flex-row i').remove();
-            const newExitBtn = document.createElement('i');
-            newExitBtn.classList.add('fas');
-            newExitBtn.classList.add('fa-window-minimize');
-            document.querySelector('.flex-row').appendChild(newExitBtn);
-            newExitBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                addBook.classList.toggle('form-enlarged');
-                document.querySelector('div.add-book p').classList.toggle('invisible');
-            })
+    addbookBtn.textContent = 'Add book';
+    addBook.classList.toggle('form-enlarged');
+    document.querySelector('div.add-book p').classList.toggle('invisible');
+    bookForm.titleData.value = '';
+    bookForm.authorData.value = '';
+    bookForm.pagesData.value = '';
+    bookForm.shelfData.selectedIndex = 0;
+    document.querySelector('#bottom-row p').remove();
+    document.querySelector('.flex-row i').remove();
+    const newExitBtn = document.createElement('i');
+    newExitBtn.classList.add('fas');
+    newExitBtn.classList.add('fa-window-minimize');
+    document.querySelector('.flex-row').appendChild(newExitBtn);
+    newExitBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        addBook.classList.toggle('form-enlarged');
+        document.querySelector('div.add-book p').classList.toggle('invisible');
+    })
 }
 
 const updateChanges = function(index) {
@@ -135,7 +160,13 @@ const updateChanges = function(index) {
     const pages = bookForm.pagesData.value;
     const shelf = bookForm.shelfData.value;
     const editedBook = new book(title, author, pages, shelf);
+
     library.splice(indexOfEdit, 1, editedBook);
+    
+    if (storageAvailable) {
+        window.localStorage.setItem('storedLibrary', JSON.stringify(library));
+    }
+    
     const bookCardToEdit = document.querySelector(`div[data-attribute='${indexOfEdit}']`);
 
     if (changeShelfSelect.selectedIndex === 0 || editedBook.shelf === changeShelfSelect.value) {
@@ -191,6 +222,9 @@ const deleteBookConfirmation = function(e) {
 const deleteBook = function(DataAtr) {
     document.querySelector(`div[data-attribute='${DataAtr}']`).remove();
     library.splice(DataAtr, 1);
+    if (storageAvailable) {
+        window.localStorage.setItem('storedLibrary', JSON.stringify(library));
+    }
     const bookCards = document.querySelectorAll('div.book-card');
     for (let i = DataAtr + 1; i < bookCards.length; i++) {
         bookCards[i].setAttribute('data-attribute', i - 1);
@@ -234,6 +268,9 @@ const bookCardGenerator = function(e)  {
 }
 
 const libraryLoad = function() {
+    if (storageAvailable) {
+        library = JSON.parse(window.localStorage.getItem('library'));
+    }
     library.forEach(element => bookCardGenerator(element));
 }
 
