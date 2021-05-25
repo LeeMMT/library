@@ -63,9 +63,9 @@ book.prototype.info = function() {
 const changeShelf = function() {
     shelfArea.innerHTML = '';
     if (changeShelfSelect.value === 'All') {
-        storedLibrary.forEach(element => bookCardGenerator(element));
+        library.forEach(element => bookCardGenerator(element));
     } else {
-        storedLibrary.filter(e => e.shelf === changeShelfSelect.value.toLocaleLowerCase()).forEach(element => bookCardGenerator(element));
+        library.filter(e => e.shelf === changeShelfSelect.value.toLocaleLowerCase()).forEach(element => bookCardGenerator(element));
     }
 }
 
@@ -133,7 +133,9 @@ const openEditBook = function(e) {
 }
 
 const exitEdit = function(e) {
-    e.stopPropagation();
+    if (e) {
+        e.stopPropagation();
+    }
     addbookBtn.textContent = 'Add book';
     addBook.classList.toggle('form-enlarged');
     document.querySelector('div.add-book p').classList.toggle('invisible');
@@ -177,12 +179,7 @@ const updateChanges = function(index) {
     } else {
         bookCardToEdit.remove();
     }
-
-    bookForm.titleData.value = '';
-    bookForm.authorData.value = '';
-    bookForm.pagesData.value = '';
-    bookForm.shelfData.selectedIndex = 0;
-    addbookBtn.textContent = 'Add book';
+    exitEdit();
 }
 
 const deleteBookConfirmation = function(e) {
@@ -269,7 +266,7 @@ const bookCardGenerator = function(e)  {
 
 const libraryLoad = function() {
     if (storageAvailable) {
-        library = JSON.parse(window.localStorage.getItem('library'));
+        library = JSON.parse(window.localStorage.getItem('storedLibrary'));
     }
     library.forEach(element => bookCardGenerator(element));
 }
