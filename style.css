@@ -64,8 +64,7 @@ header {
     border-bottom-width: 1px;
     margin-bottom: 0px;
     column-gap: 4px;
-    word-wrap: break-word;
-    word-break: break-all;
+    word-break: break-word;
 }
 
 .book-card-column {
@@ -258,7 +257,6 @@ p.invisible {
     justify-content: center;
     font-size: 1em;
     box-sizing: border-box;
-    width: 500px;
     border-style: solid;
     border-color: #D8D8D8;
     border-bottom-width: 0px;
@@ -362,7 +360,7 @@ p.invisible {
         height: auto;
         padding:6px 0px;
         display: grid;
-        grid-template-columns: 2fr 1fr 0.5fr 0.5fr auto;
+        grid-template-columns: 2fr 1fr 0.6fr auto auto;
         grid-template-rows: auto;
         border-style: solid;
         border-color: #D8D8D8;
