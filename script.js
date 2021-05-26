@@ -265,7 +265,7 @@ const bookCardGenerator = function(e)  {
 }
 
 const libraryLoad = function() {
-    if (storageAvailable) {
+    if (storageAvailable && window.localStorage.getItem('storedLibrary')) {
         library = JSON.parse(window.localStorage.getItem('storedLibrary'));
     }
     library.forEach(element => bookCardGenerator(element));
