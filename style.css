@@ -64,6 +64,13 @@ header {
     border-bottom-width: 1px;
     margin-bottom: 0px;
     column-gap: 4px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.book-card-column {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 #utility {

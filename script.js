@@ -230,7 +230,7 @@ const deleteBook = function(DataAtr) {
 
 const bookCardGenerator = function(e)  {
     const bookCard = document.createElement('div');
-    bookCard.classList.toggle('book-card');
+    bookCard.classList.add('book-card');
     bookCard.setAttribute('data-attribute', `${library.indexOf(e)}`);
     const title = document.createElement('p');
     const author = document.createElement('p');
@@ -252,7 +252,7 @@ const bookCardGenerator = function(e)  {
     author.textContent = e.author;
     pages.textContent = e.pages;
     shelf.textContent = e.shelf;
-    
+
     bookCard.appendChild(title);
     bookCard.appendChild(author);
     bookCard.appendChild(pages);
