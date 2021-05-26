@@ -24,7 +24,7 @@ body {
     display: grid;
     grid-template-columns: 500px 300px;
     grid-template-areas: 'left right';
-    margin-top: 1em;
+    margin-top: 20px;
 }
 
 header {
@@ -343,6 +343,11 @@ p.invisible {
         height: auto;
         padding-left: 0px;
         margin-left: 0px;
+        margin-top: -48px;
+    }
+
+    select#book-controls {
+        height: 28px;
     }
 
 
