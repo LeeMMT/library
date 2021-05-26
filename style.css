@@ -141,29 +141,19 @@ a {
 
 .add-book label, .edit-book label {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 0.9em;
+    font-size: 14px;
     margin-bottom: 4px;
 }
 
 input, select {
-    font-size: 1em;
+    font-size: 16px;
     margin-bottom: 6px;
 }
 
 select {
-    height: 24px;
     width: min-content;
     padding: 1px 2px;
-    font-size: 0.9em;
-}
-
-select#book-controls {
-    font-size: 1em;
-    border-width: 2px;
-    border-radius: 2px;
-    border-color: #D8D8D8;
-    background-color: #FBF6EF;
-    margin-bottom: 0px;
+    font-size: 14px;
 }
 
 button {
@@ -217,7 +207,7 @@ div.add-book p, div.edit-book p {
 .form-enlarged {
     box-sizing: border-box;
     width: 250px;
-    height: 249px;
+    height: 270px;
     border-color: #5F4E30;
 }
 
@@ -306,6 +296,7 @@ p.invisible {
 
 .book-card-header {
     font-size: 0.9em;
+    color: #292929;
 }
 
 @media screen and (max-width: 800px) {

@@ -80,6 +80,8 @@ const addBookToLibrary = function() {
     const author = bookForm.authorData.value;
     const pages = bookForm.pagesData.value;
     const shelf = bookForm.shelfData.value;
+    console.log(shelf);
+
     if (library.some(element => title.toLowerCase() === element.title.toLocaleLowerCase() && author.toLocaleLowerCase() === element.author.toLocaleLowerCase())) {
         return;
     }
