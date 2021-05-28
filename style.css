@@ -216,8 +216,10 @@ div.add-book p, div.edit-book p {
     width: 250px;
     height: 270px;
     border-color: #5F4E30;
-}.form-enlarged input {
-    height: min-content;
+}
+
+.form-enlarged input {
+    height: 34px;
 }
 
 .add-book form, .edit-book form {
