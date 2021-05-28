@@ -151,10 +151,6 @@ input, select {
     margin-bottom: 6px;
 }
 
-.add-book input {
-    height: 24px;
-}
-
 select {
     height: min-content;
     width: min-content;
@@ -220,6 +216,8 @@ div.add-book p, div.edit-book p {
     width: 250px;
     height: 270px;
     border-color: #5F4E30;
+}.form-enlarged input {
+    height: min-content;
 }
 
 .add-book form, .edit-book form {
