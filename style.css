@@ -2,6 +2,7 @@ body {
     background-color: #FBF6EF;
     width: 100%;
     font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
     color: black;
 }
 
@@ -141,19 +142,28 @@ a {
 
 .add-book label, .edit-book label {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 14px;
+    font-size: 0.9em;
     margin-bottom: 4px;
 }
 
 input, select {
-    font-size: 16px;
+    font-size: 1em;
     margin-bottom: 6px;
 }
 
+.add-book input {
+    height: 24px;
+}
+
 select {
+    height: min-content;
     width: min-content;
     padding: 1px 2px;
-    font-size: 14px;
+    font-size: 0.9em;
+}
+div.add-book select, div.add-book option{
+    height: 22px;
+    padding: 0px;
 }
 
 button {
