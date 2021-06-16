@@ -49,15 +49,16 @@ let library = [
 
 //Functions
 
-const book = function(title, author, pages, shelf) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.shelf= shelf;
-}
-
-book.prototype.info = function() {
-    return `${this.title} by ${this.author}, ${this.pages} pages, ${(this.read) ? 'finished reading' : 'not read yet'}`;
+class book {
+    constructor(title, author, pages, shelf) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.shelf= shelf;
+    }
+    info() {
+        console.log(`${this.title} by ${this.author}, ${this.pages} pages, ${(this.read) ? 'finished reading' : 'not read yet'}`);
+    }
 }
 
 const changeShelf = function() {
