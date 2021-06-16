@@ -157,17 +157,27 @@ select {
     padding: 1px 2px;
     font-size: 0.9em;
 }
+
+select#book-controls {
+    border-style: solid;
+    border-width: 2px;
+    border-color: #D8D8D8;
+    background-color: white;
+}
+
 div.add-book select, div.add-book option{
     height: 22px;
     padding: 0px;
 }
 
 button {
+    box-sizing: border-box;
     width: max-content;
     border-style: solid;
     border-width: 1px;
     border-radius: 2px;
     font-size: 1em;
+    padding-top: 2px;
 }
 
 button:hover {
@@ -214,12 +224,12 @@ div.add-book p, div.edit-book p {
 .form-enlarged {
     box-sizing: border-box;
     width: 250px;
-    height: 270px;
+    height: 238px;
     border-color: #5F4E30;
 }
 
 .form-enlarged input {
-    height: 34px;
+    height: min-content;
 }
 
 .add-book form, .edit-book form {
@@ -349,6 +359,10 @@ p.invisible {
 
     select#book-controls {
         height: 28px;
+        border-style: solid;
+        border-width: 2px;
+        border-color: #D8D8D8;
+        background-color: white;
     }
 
 
